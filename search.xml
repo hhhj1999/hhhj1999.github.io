@@ -4,7 +4,10 @@
     <title>tomcat的环境变量是否要配置的问题</title>
     <url>/2020/02/25/tomcat%E7%9A%84%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E6%98%AF%E5%90%A6%E8%A6%81%E9%85%8D%E7%BD%AE%E7%9A%84%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<p>用文本编辑工具打开用于启动Tomcat的批处理文件startup.bat，仔细阅读。在这个文件中，首先判断CATALINA_HOME环境变量是否为空，如果为空，就将当前目录设为CATALINA_HOME的值。接着判断当前目录下是否存在bin\catalina.bat，如果文件不存在，将当前目录的父目录设为CATALINA_HOME的值。根据笔者机器上Tomcat安装目录的层次结构，最后CATALINA_HOME的值被设为Tomcat的安装目录。如果环境变量CATALINA_HOME已经存在，则通过这个环境变量调用bin目录下的“catalina.bat start”命令。通过这段分析，我们了解到两个信息，一是Tomcat启动时，需要查找CATALINA_HOME这个环境变量，如果在Tomcat的bin目录下调用startup.bat，Tomcat会自动并正确设置CATALINA_HOME；二是执行startup.bat命令，实际上执行的是“catalina.bat start”命令。</p>
-<h1 id="简单的说"><a href="#简单的说" class="headerlink" title="简单的说"></a>简单的说</h1><h2 id="1、如果我们直接从bin目录下运行startup-bat-启动，是不需要配置环境变量的，而如果我们直接使用命令则需要环境变量"><a href="#1、如果我们直接从bin目录下运行startup-bat-启动，是不需要配置环境变量的，而如果我们直接使用命令则需要环境变量" class="headerlink" title="1、如果我们直接从bin目录下运行startup.bat 启动，是不需要配置环境变量的，而如果我们直接使用命令则需要环境变量"></a>1、如果我们直接从bin目录下运行startup.bat 启动，是不需要配置环境变量的，而如果我们直接使用命令则需要环境变量</h2><h2 id="2、配置了环境变量对全局生效，所以如果我们需要同时启动多个tomcat，则要么一个环境都不配置，要么所有环境都配置"><a href="#2、配置了环境变量对全局生效，所以如果我们需要同时启动多个tomcat，则要么一个环境都不配置，要么所有环境都配置" class="headerlink" title="2、配置了环境变量对全局生效，所以如果我们需要同时启动多个tomcat，则要么一个环境都不配置，要么所有环境都配置"></a>2、配置了环境变量对全局生效，所以如果我们需要同时启动多个tomcat，则要么一个环境都不配置，要么所有环境都配置</h2>]]></content>
+<h1 id="简单的说"><a href="#简单的说" class="headerlink" title="简单的说"></a>简单的说</h1><h2 id="1、如果我们直接从bin目录下运行startup-bat-启动，是不需要配置环境变量的，而如果我们直接使用命令则需要环境变量"><a href="#1、如果我们直接从bin目录下运行startup-bat-启动，是不需要配置环境变量的，而如果我们直接使用命令则需要环境变量" class="headerlink" title="1、如果我们直接从bin目录下运行startup.bat 启动，是不需要配置环境变量的，而如果我们直接使用命令则需要环境变量"></a>1、如果我们直接从bin目录下运行startup.bat 启动，是不需要配置环境变量的，而如果我们直接使用命令则需要环境变量</h2><h2 id="2、配置了环境变量对全局生效，所以如果我们需要同时启动多个tomcat，则要么一个环境都不配置，要么所有环境都配置"><a href="#2、配置了环境变量对全局生效，所以如果我们需要同时启动多个tomcat，则要么一个环境都不配置，要么所有环境都配置" class="headerlink" title="2、配置了环境变量对全局生效，所以如果我们需要同时启动多个tomcat，则要么一个环境都不配置，要么所有环境都配置"></a>2、配置了环境变量对全局生效，所以如果我们需要同时启动多个tomcat，则要么一个环境都不配置，要么所有环境都配置</h2><blockquote>
+<p>转载于<a href="https://blog.csdn.net/h12kjgj/article/details/79611002" target="_blank" rel="noopener">https://blog.csdn.net/h12kjgj/article/details/79611002</a></p>
+</blockquote>
+]]></content>
   </entry>
   <entry>
     <title>markdown练习</title>
